@@ -1,17 +1,18 @@
 {
-  "name": "figletify",
+  "name": "minimap-titles",
   "main": "./lib/figletify",
-  "version": "0.1.3",
-  "description": "Atom package to convert the selected text to ASCII art using FIGlet",
+  "version": "0.0.1",
+  "description": "Atom package to convert the selected text to ASCII art using FIGlet and auto-comment",
   "keywords": [
     "figlet",
     "ascii art",
-    "figfont"
+    "figfont",
+    "comment"
   ],
   "activationCommands": {
-    "atom-workspace": "figletify:convert"
+    "atom-workspace": "minimap-titles:convert"
   },
-  "repository": "https://github.com/robatron/atom-figletify.git",
+  "repository": "https://github.com/masavini/atom-minimap-titles.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
