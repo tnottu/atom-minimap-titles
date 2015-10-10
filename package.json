@@ -1,6 +1,6 @@
 {
   "name": "minimap-titles",
-  "main": "./lib/figletify",
+  "main": "./lib/minimap-titles",
   "version": "0.0.1",
   "description": "Atom package to convert the selected text to ASCII art using FIGlet and auto-comment",
   "keywords": [
