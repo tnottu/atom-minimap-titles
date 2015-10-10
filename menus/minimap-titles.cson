@@ -2,8 +2,8 @@
 'context-menu':
   'atom-text-editor': [
     {
-      'label': 'Figletify Selection'
-      'command': 'figletify:convert'
+      'label': 'Minimap Titles Convert'
+      'command': 'minimap-titles:convert'
     }
   ]
 'menu': [
@@ -11,8 +11,8 @@
     'label': 'Packages'
     'submenu': [
       {
-        'label': 'Figletify Selection'
-        'command': 'figletify:convert'
+        'label': 'Minimap Titles Convert'
+        'command': 'minimap-titles:convert'
       }
     ]
   }
