@@ -39,5 +39,46 @@ module.exports = MinimapTitles =
             art = art.replace /^[\s\t]*(\r\n|\n|\r)/gm, ""
             art = art.replace /\r?\n?[^\r\n]*$/, ""
 
-            # insert text in editor
-            editor.insertText "#{art}", {select: true}
+
+            # comment
+            fileName = editor.getTitle()
+            extension = fileName.substr(fileName.lastIndexOf('.') + 1, fileName.length)
+            if extension is 'js'
+              commentStart = '/*'
+              commentEnd = '*/'
+            else if extension is 'sh' or extension is 'yaml'
+              commentStart = ''
+              commentEnd = ''
+            else if extension is 'coffee'
+              commentStart = '###\n'
+              commentEnd = '\n###'
+            else if extension is 'html' or extension is 'md'
+              commentStart = '<!--\n'
+              commentEnd = '\n-->'
+            else if extension is 'php'
+              commentStart = '/**\n
+              \t * Block comment\n
+              \t *\n
+              \t * @param type\n
+              \t * @return void\n'
+              commentEnd = '\t */\n\t'
+            else
+              commentStart = '/*'
+              commentEnd = '*/'
+
+
+            if extension is 'sh' or extension is 'yaml'
+              # add '# ' to the beginning of each line
+              art = art.replace /^/, "# "
+              art = art.replace /\n/g, "\n# "
+
+            start = art.trim().substr(0, commentStart.length)
+            end = art.trim().substr(-1 * commentEnd.length)
+
+            # insert text
+            if start is commentStart and end is commentEnd
+              replaced = art.trim().substr(commentStart.length)
+              replaced = replaced.substr(0, replaced.length - commentEnd.length)
+              editor.insertText(replaced, {select: true})
+            else
+              editor.insertText("#{commentStart+art+commentEnd}", {select: true})
