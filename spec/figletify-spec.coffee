@@ -1,39 +1,39 @@
-Figletify = require '../lib/figletify'
+MinimapTitles = require '../lib/minimap-titles'
 
 # Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 #
 # To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
 # or `fdescribe`). Remove the `f` to unfocus the block.
 
-describe "Figletify", ->
+describe "MinimapTitles", ->
   [workspaceElement, activationPromise] = []
 
   beforeEach ->
     workspaceElement = atom.views.getView(atom.workspace)
-    activationPromise = atom.packages.activatePackage('figletify')
+    activationPromise = atom.packages.activatePackage('minimap-titles')
 
-  describe "when the figletify:toggle event is triggered", ->
+  describe "when the minimap-titles:toggle event is triggered", ->
     it "hides and shows the modal panel", ->
       # Before the activation event the view is not on the DOM, and no panel
       # has been created
-      expect(workspaceElement.querySelector('.figletify')).not.toExist()
+      expect(workspaceElement.querySelector('.minimap-titles')).not.toExist()
 
       # This is an activation event, triggering it will cause the package to be
       # activated.
-      atom.commands.dispatch workspaceElement, 'figletify:toggle'
+      atom.commands.dispatch workspaceElement, 'minimap-titles:toggle'
 
       waitsForPromise ->
         activationPromise
 
       runs ->
-        expect(workspaceElement.querySelector('.figletify')).toExist()
+        expect(workspaceElement.querySelector('.minimap-titles')).toExist()
 
-        figletifyElement = workspaceElement.querySelector('.figletify')
+        figletifyElement = workspaceElement.querySelector('.minimap-titles')
         expect(figletifyElement).toExist()
 
         figletifyPanel = atom.workspace.panelForItem(figletifyElement)
         expect(figletifyPanel.isVisible()).toBe true
-        atom.commands.dispatch workspaceElement, 'figletify:toggle'
+        atom.commands.dispatch workspaceElement, 'minimap-titles:toggle'
         expect(figletifyPanel.isVisible()).toBe false
 
     it "hides and shows the view", ->
@@ -45,18 +45,18 @@ describe "Figletify", ->
       # workspaceElement to the DOM are generally slower than those off DOM.
       jasmine.attachToDOM(workspaceElement)
 
-      expect(workspaceElement.querySelector('.figletify')).not.toExist()
+      expect(workspaceElement.querySelector('.minimap-titles')).not.toExist()
 
       # This is an activation event, triggering it causes the package to be
       # activated.
-      atom.commands.dispatch workspaceElement, 'figletify:toggle'
+      atom.commands.dispatch workspaceElement, 'minimap-titles:toggle'
 
       waitsForPromise ->
         activationPromise
 
       runs ->
         # Now we can test for view visibility
-        figletifyElement = workspaceElement.querySelector('.figletify')
+        figletifyElement = workspaceElement.querySelector('.minimap-titles')
         expect(figletifyElement).toBeVisible()
-        atom.commands.dispatch workspaceElement, 'figletify:toggle'
+        atom.commands.dispatch workspaceElement, 'minimap-titles:toggle'
         expect(figletifyElement).not.toBeVisible()
