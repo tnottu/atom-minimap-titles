@@ -12,7 +12,7 @@
   "activationCommands": {
     "atom-workspace": "minimap-titles:convert"
   },
-  "repository": "https://github.com/masavini/atom-minimap-titles",
+  "repository": "https://github.com/masavini/atom-minimap-titles.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
