@@ -29,7 +29,7 @@ into something like this:
 ## Usage
 To convert text, select the text you wish to convert, and do **any** of the following:
 - Press `ctrl-shift-del` **or**
-- Select `Minimap Titles: Convert` in the [command pallet](https://atom.io/docs/latest/getting-started-atom-basics#command-palette) **or**
+- Select `Minimap Titles: Convert` in the [command palette](https://atom.io/docs/latest/getting-started-atom-basics#command-palette) **or**
 - Select _Packages_ -> _Minimap Titles Convert_ from the main menu **or**
 - Right click on the selected text, and select _Minimap Titles: Convert_ from the context menu
 
