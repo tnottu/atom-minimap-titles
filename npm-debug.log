@@ -1,0 +1,43 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/share/atom/resources/app/apm/bin/node',
+1 verbose cli   '/usr/share/atom/resources/app/apm/node_modules/npm/bin/npm-cli.js',
+1 verbose cli   'version',
+1 verbose cli   'minor',
+1 verbose cli   '-m',
+1 verbose cli   'Prepare %s release' ]
+2 info using npm@2.13.3
+3 info using node@v0.10.40
+4 info git [ 'status', '--porcelain' ]
+5 info preversion minimap-titles@1.1.0
+6 verbose version.write data { name: 'minimap-titles',
+6 verbose version.write   main: './lib/minimap-titles',
+6 verbose version.write   version: '1.1.0',
+6 verbose version.write   description: 'Atom package to convert the selected text to ASCII art using FIGlet and then comment it.',
+6 verbose version.write   keywords: [ 'figlet', 'ascii art', 'figfont', 'comment' ],
+6 verbose version.write   activationCommands: { 'atom-workspace': 'minimap-titles:convert' },
+6 verbose version.write   repository: 'https://github.com/masavini/atom-minimap-titles.git',
+6 verbose version.write   license: 'MIT',
+6 verbose version.write   engines: { atom: '>=1.0.0 <2.0.0' },
+6 verbose version.write   dependencies: { figlet: '1.1.1' } } to package.json
+7 info version minimap-titles@1.1.0
+8 info git [ 'add', 'package.json' ]
+9 info git [ 'commit', '-m', 'Prepare 1.1.0 release' ]
+10 info git [ 'tag', 'v1.1.0', '-am', 'Prepare 1.1.0 release' ]
+11 verbose stack Error: Command failed: fatal: tag 'v1.1.0' already exists
+11 verbose stack
+11 verbose stack     at ChildProcess.exithandler (child_process.js:658:15)
+11 verbose stack     at ChildProcess.emit (events.js:98:17)
+11 verbose stack     at maybeClose (child_process.js:766:16)
+11 verbose stack     at Socket.<anonymous> (child_process.js:979:11)
+11 verbose stack     at Socket.emit (events.js:95:17)
+11 verbose stack     at Pipe.close (net.js:466:12)
+12 verbose cwd /home/teo/projects/atom-packages/minimap-titles
+13 error Linux 3.13.0-66-generic
+14 error argv "/usr/share/atom/resources/app/apm/bin/node" "/usr/share/atom/resources/app/apm/node_modules/npm/bin/npm-cli.js" "version" "minor" "-m" "Prepare %s release"
+15 error node v0.10.40
+16 error npm  v2.13.3
+17 error code 128
+18 error Command failed: fatal: tag 'v1.1.0' already exists
+19 error If you need help, you may report this error at:
+19 error     <https://github.com/npm/npm/issues>
+20 verbose exit [ 1, true ]
