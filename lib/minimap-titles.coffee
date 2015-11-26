@@ -53,10 +53,6 @@ module.exports = MinimapTitles =
               art = art.replace /\r?\n?[^\r\n]*$/, ""
 
               switch extension
-                when 'js'
-                  commentStart = '/*\n'
-                  commentEnd = '\n*/'
-
                 when 'sh','yaml',''
                   commentStart = ''
                   commentEnd = ''
@@ -64,7 +60,7 @@ module.exports = MinimapTitles =
                   art = art.replace /^/, "# "
                   art = art.replace /\n/g, "\n# "
 
-                when 'coffee'
+                when 'coffee', 'cjsx', 'cson'
                   commentStart = '###\n'
                   commentEnd = '\n###'
 
