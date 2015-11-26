@@ -33,10 +33,10 @@ module.exports = MinimapTitles =
         do (selection) ->
           if selection.isEmpty()
             # auto select word
-            selection.expandOverWord()
+            selection.selectLine()
             if selection.isEmpty() then return
 
-          figlet selection.getText(), { font: font }, ( error, art ) ->
+          figlet selection.getText().trim(), { font: font }, ( error, art ) ->
             if error
               console.error error
 
@@ -81,6 +81,10 @@ module.exports = MinimapTitles =
                   commentEnd = '\n*/'
 
               selection.insertText(
-                "#{commentStart+art+commentEnd}",
-                {select: true}
+                "#{commentStart+art+commentEnd}\n",
+                {
+                  select: true,
+                  autoIndent: true
+                  autoIndentNewline: true
+                }
               )
