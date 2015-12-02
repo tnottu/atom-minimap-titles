@@ -48,9 +48,8 @@ module.exports = MinimapTitles =
               ###
               art = art.replace /[\u2550-\u255D]/g, " "
 
-              # delete empty lines
-              art = art.replace /^[\s\t]*(\r\n|\n|\r)/gm, ""
-              art = art.replace /\r?\n?[^\r\n]*$/, ""
+              # delete empty lines & tailing spaces
+              art = art.replace /\s+$/gm, ""
 
               switch extension
                 when 'sh','yaml',''
