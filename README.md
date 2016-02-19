@@ -30,8 +30,12 @@ into something like this:
 To convert text, select the text you wish to convert, and do **any** of the following:
 - Press `ctrl-shift-del` **or**
 - Select `Minimap Titles: Convert` in the [command palette](https://atom.io/docs/latest/getting-started-atom-basics#command-palette) **or**
-- Select _Packages_ -> _Minimap Titles Convert_ from the main menu **or**
+- Select _Packages_ -> _Minimap Titles_ -> _Convert_ from the main menu **or**
 - Right click on the selected text, and select _Minimap Titles: Convert_ from the context menu
+
+To create comment borders around text to help distinguish sections in the minimap do the following:
+- Select _Packages_ -> _Minimap Titles_ -> _Toggle Comment Borders_ from the main menu
+- Run the Convert command on your text as detailed above
 
 ## Credits
 Based on the following packages:
