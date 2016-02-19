@@ -26,6 +26,20 @@ into something like this:
 # ██   ██ ███████ ███████ ███████  ██████       ███ ███   ██████  ██   ██ ███████ ██████
 ```
 
+you can also `Toggle Comment Borders` to put a border around the text to add more distinction in the minimap:
+
+```
+###############################################################################
+# ██   ██ ███████ ██      ██       ██████      ██     ██  ██████  ██████  ██      ██████
+# ██   ██ ██      ██      ██      ██    ██     ██     ██ ██    ██ ██   ██ ██      ██   ██
+# ███████ █████   ██      ██      ██    ██     ██  █  ██ ██    ██ ██████  ██      ██   ██
+# ██   ██ ██      ██      ██      ██    ██     ██ ███ ██ ██    ██ ██   ██ ██      ██   ██
+# ██   ██ ███████ ███████ ███████  ██████       ███ ███   ██████  ██   ██ ███████ ██████
+###############################################################################
+```
+
+Note that `Toggle Comment Borders` determines border size based on your editors preferred line length, Atom's default is 80 as shown above.
+
 ## Usage
 To convert text, select the text you wish to convert, and do **any** of the following:
 - Press `ctrl-shift-del` **or**
