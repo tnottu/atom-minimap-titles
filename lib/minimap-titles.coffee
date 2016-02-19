@@ -55,29 +55,30 @@ module.exports = MinimapTitles =
                 when 'sh','yaml',''
                   commentStart = ''
                   commentEnd = ''
+                  commentRepeat = 80
                   # add '# ' to the beginning of each line
                   art = art.replace /^/, "# "
                   art = art.replace /\n/g, "\n# "
 
                 when 'coffee', 'cjsx', 'cson'
-                  commentStart = '###\n'
-                  commentEnd = '\n###'
+                  commentStart = '###\n' + Array(commentRepeat).join('#') + '\n'
+                  commentEnd = Array(commentRepeat).join('#') +'\n###\n'
 
                 when 'html','md'
-                  commentStart = '<!--\n'
-                  commentEnd = '\n-->'
+                  commentStart = '<!--' + Array(commentRepeat-4).join('-') + '\n' 
+                  commentEnd = Array(commentRepeat-3).join('-') +'\n-->'
 
                 when 'php'
-                  commentStart = '/**\n
+                  commentStart = '/**' + Array(commentRepeat-3).join('*') + '\n
                   \t * Block comment\n
                   \t *\n
                   \t * @param type\n
                   \t * @return void\n'
-                  commentEnd = '\t */\n\t'
+                  commentEnd = Array(commentRepeat-2).join('*') + '*/\n\t'
 
                 else
-                  commentStart = '/*\n'
-                  commentEnd = '\n*/'
+                  commentStart = '/*' + Array(commentRepeat-2).join('*') + '\n'
+                  commentEnd = '\n' + Array(commentRepeat-2).join('*') + '*/\n'
 
               selection.insertText(
                 "#{commentStart+art+commentEnd}\n",
