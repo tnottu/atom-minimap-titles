@@ -13,7 +13,7 @@
         'label': 'Minimap Titles'
         'submenu': [
               {
-                'label': 'Minimap Titles Convert'
+                'label': 'Convert'
                 'command': 'minimap-titles:convert'
               }
               {
