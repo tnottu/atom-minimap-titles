@@ -40,6 +40,10 @@ you can also `Toggle Comment Borders` to put a border around the text to add mor
 
 Note that `Toggle Comment Borders` determines border size based on your editors preferred line length, Atom's default is 80 as shown above.
 
+The difference is slight and completely based on user preference:
+
+<img src="http://i.imgur.com/xBCmrSx.png" alt="Border vs. No Border Example">
+
 ## Usage
 To convert text, select the text you wish to convert, and do **any** of the following:
 - Press `ctrl-shift-del` **or**
