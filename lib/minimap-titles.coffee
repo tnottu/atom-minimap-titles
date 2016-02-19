@@ -2,18 +2,24 @@
 
 module.exports = MinimapTitles =
   subscriptions: null
-
+  borderOn: false
+  preferredLineLength: 0
   activate: (state) ->
 
+    #@borderOn = false
     # Events subscribed to in atom's system can be
     # easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
     @subscriptions.add atom.commands.add 'atom-workspace', 'minimap-titles:convert': => @convert()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'minimap-titles:border': => @border()
 
   deactivate: ->
     @subscriptions.dispose()
+
+  border: ->
+    @borderOn = not @borderOn
 
   convert: ->
     if editor = atom.workspace.getActiveTextEditor()
@@ -28,9 +34,9 @@ module.exports = MinimapTitles =
 
       # get multi-cursor selections
       selections = editor.getSelections()
-
+      @preferredLineLength = atom.config.get('editor.preferredLineLength')
       for selection in selections
-        do (selection) ->
+        do (selection, @borderOn, @preferredLineLength) ->
           if selection.isEmpty()
             # auto select word
             selection.selectLine()
@@ -53,32 +59,43 @@ module.exports = MinimapTitles =
 
               switch extension
                 when 'sh','yaml',''
-                  commentStart = ''
-                  commentEnd = ''
-                  commentRepeat = 80
+                  if not @borderOn
+                    preferredLineLength = 0
                   # add '# ' to the beginning of each line
+                  commentStart = Array(preferredLineLength).join('#') + '\n'
                   art = art.replace /^/, "# "
                   art = art.replace /\n/g, "\n# "
+                  commentEnd = '\n' + Array(preferredLineLength).join('#') + '\n'
 
                 when 'coffee', 'cjsx', 'cson'
-                  commentStart = '###\n' + Array(commentRepeat).join('#') + '\n'
-                  commentEnd = Array(commentRepeat).join('#') +'\n###\n'
+                  if not @borderOn
+                    preferredLineLength = 0
+                  commentStart = Array(preferredLineLength).join('#') + '\n'
+                  art = art.replace /^/, "# "
+                  art = art.replace /\n/g, "\n# "
+                  commentEnd = '\n' + Array(preferredLineLength).join('#') + '\n'
 
                 when 'html','md'
-                  commentStart = '<!--' + Array(commentRepeat-4).join('-') + '\n' 
-                  commentEnd = Array(commentRepeat-3).join('-') +'\n-->'
+                  if not @borderOn
+                    preferredLineLength = 6
+                  commentStart = '<!--' + Array(preferredLineLength-6).join('#') + '\n'
+                  commentEnd = '\n' + Array(preferredLineLength-5).join('#') + '-->'
 
                 when 'php'
-                  commentStart = '/**' + Array(commentRepeat-3).join('*') + '\n
+                  if not @borderOn
+                    preferredLineLength = 3
+                  commentStart = '/**' + Array(preferredLineLength-3).join('*') + '\n
                   \t * Block comment\n
                   \t *\n
                   \t * @param type\n
                   \t * @return void\n'
-                  commentEnd = Array(commentRepeat-2).join('*') + '*/\n\t'
+                  commentEnd = '\n' + Array(preferredLineLength-2).join('*') + '*/\n\t'
 
                 else
-                  commentStart = '/*' + Array(commentRepeat-2).join('*') + '\n'
-                  commentEnd = '\n' + Array(commentRepeat-2).join('*') + '*/\n'
+                  if not @borderOn
+                    preferredLineLength = 2
+                  commentStart = '/*' + Array(preferredLineLength-2).join('*') + '\n'
+                  commentEnd = '\n' + Array(preferredLineLength-2).join('*') + '*/\n'
 
               selection.insertText(
                 "#{commentStart+art+commentEnd}\n",
