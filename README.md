@@ -26,12 +26,34 @@ into something like this:
 # ██   ██ ███████ ███████ ███████  ██████       ███ ███   ██████  ██   ██ ███████ ██████
 ```
 
+you can also `Toggle Comment Borders` to put a border around the text to add more distinction in the minimap:
+
+```
+###############################################################################
+# ██   ██ ███████ ██      ██       ██████      ██     ██  ██████  ██████  ██      ██████
+# ██   ██ ██      ██      ██      ██    ██     ██     ██ ██    ██ ██   ██ ██      ██   ██
+# ███████ █████   ██      ██      ██    ██     ██  █  ██ ██    ██ ██████  ██      ██   ██
+# ██   ██ ██      ██      ██      ██    ██     ██ ███ ██ ██    ██ ██   ██ ██      ██   ██
+# ██   ██ ███████ ███████ ███████  ██████       ███ ███   ██████  ██   ██ ███████ ██████
+###############################################################################
+```
+
+Note that `Toggle Comment Borders` determines border size based on your editors preferred line length, Atom's default is 80 as shown above.
+
+The difference is slight and completely based on user preference:
+
+<img src="http://i.imgur.com/xBCmrSx.png" alt="Border vs. No Border Example">
+
 ## Usage
 To convert text, select the text you wish to convert, and do **any** of the following:
 - Press `ctrl-shift-del` **or**
 - Select `Minimap Titles: Convert` in the [command palette](https://atom.io/docs/latest/getting-started-atom-basics#command-palette) **or**
-- Select _Packages_ -> _Minimap Titles Convert_ from the main menu **or**
+- Select _Packages_ -> _Minimap Titles_ -> _Convert_ from the main menu **or**
 - Right click on the selected text, and select _Minimap Titles: Convert_ from the context menu
+
+To create comment borders around text to help distinguish sections in the minimap do the following:
+- Select _Packages_ -> _Minimap Titles_ -> _Toggle Comment Borders_ from the main menu
+- Run the Convert command on your text as detailed above
 
 ## Credits
 Based on the following packages:

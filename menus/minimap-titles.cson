@@ -10,10 +10,18 @@
   {
     'label': 'Packages'
     'submenu': [
-      {
-        'label': 'Minimap Titles Convert'
-        'command': 'minimap-titles:convert'
-      }
+        'label': 'Minimap Titles'
+        'submenu': [
+              {
+                'label': 'Convert'
+                'command': 'minimap-titles:convert'
+              }
+              {
+                'label': 'Toggle Comment Borders'
+                'command': 'minimap-titles:border'
+              }
+        ]
     ]
   }
 ]
+
