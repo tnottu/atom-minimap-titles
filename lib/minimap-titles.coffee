@@ -90,6 +90,13 @@ module.exports = MinimapTitles =
                   \t * @param type\n
                   \t * @return void\n'
                   commentEnd = '\n' + Array(preferredLineLength-2).join('*') + '*/\n\t'
+                
+                when 'vb','vbs'
++                  commentStart = ''
++                  commentEnd = ''
++                  # add '' ' to the beginning of each line
++                  art = art.replace /^/, "' "
++                  art = art.replace /\n/g, "\n' "
 
                 else
                   if not @borderOn
