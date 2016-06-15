@@ -4,11 +4,12 @@
 The chosen figlet font (ANSI Shadow) is perfect for minimap visualization. Commenting supports several file extensions:
 - js
 - sh
-- yaml
+- yml, yaml
 - coffee
 - html
 - md
 - php
+- vb
 
 Select some text to convert something like this:
 
