@@ -62,24 +62,24 @@ module.exports = MinimapTitles =
                   if not @borderOn
                     preferredLineLength = 0
                   # add '# ' to the beginning of each line
-                  commentStart = Array(preferredLineLength).join('#') + '\n'
+                  commentStart = Array(preferredLineLength).join('#') + '\n\n'
                   art = art.replace /^/, "# "
                   art = art.replace /\n/g, "\n# "
-                  commentEnd = '\n' + Array(preferredLineLength).join('#') + '\n'
+                  commentEnd = '\n\n' + Array(preferredLineLength).join('#') + '\n'
 
                 when 'coffee', 'cjsx', 'cson'
                   if not @borderOn
                     preferredLineLength = 0
-                  commentStart = Array(preferredLineLength).join('#') + '\n'
+                  commentStart = Array(preferredLineLength).join('#') + '\n\n'
                   art = art.replace /^/, "# "
                   art = art.replace /\n/g, "\n# "
-                  commentEnd = '\n' + Array(preferredLineLength).join('#') + '\n'
+                  commentEnd = '\n\n' + Array(preferredLineLength).join('#') + '\n'
 
                 when 'html','md'
                   if not @borderOn
                     preferredLineLength = 6
-                  commentStart = '<!--' + Array(preferredLineLength-6).join('#') + '\n'
-                  commentEnd = '\n' + Array(preferredLineLength-5).join('#') + '-->'
+                  commentStart = '<!--' + Array(preferredLineLength-6).join('#') + '\n\n'
+                  commentEnd = '\n\n' + Array(preferredLineLength-5).join('#') + '-->'
 
                 when 'php'
                   if not @borderOn
@@ -90,7 +90,7 @@ module.exports = MinimapTitles =
                   \t * @param type\n
                   \t * @return void\n'
                   commentEnd = '\n' + Array(preferredLineLength-2).join('*') + '*/\n\t'
-                
+
                 when 'vb','vbs'
                   commentStart = ''
                   commentEnd = ''
@@ -101,8 +101,8 @@ module.exports = MinimapTitles =
                 else
                   if not @borderOn
                     preferredLineLength = 2
-                  commentStart = '/*' + Array(preferredLineLength-2).join('*') + '\n'
-                  commentEnd = '\n' + Array(preferredLineLength-2).join('*') + '*/\n'
+                  commentStart = '/*' + Array(preferredLineLength-2).join('*') + '\n\n'
+                  commentEnd = '\n\n' + Array(preferredLineLength-2).join('*') + '*/\n'
 
               selection.insertText(
                 "#{commentStart+art+commentEnd}\n",
